@@ -18,12 +18,12 @@ export default class Matrix2d {
     get numberOfColumns() { return this._columnCount; }
     get entriesCount() { return this._rowCount * this._columnCount }
 
-    getEntry(row = args.mandatory("row"), column = args.mandatory("column")){
+    getEntry(column = args.mandatory("column", row = args.mandatory("row"))){
         const entryIndex = _entryIndex(this.numberOfColumns, row, column);
         return this._entries[entryIndex];
     }
 
-    setEntry(row = args.mandatory("row"), column = args.mandatory("column"), value = args.mandatory("value")){
+    setEntry(column = args.mandatory("column"), row = args.mandatory("row"), value = args.mandatory("value")){
         const entryIndex = _entryIndex(this.numberOfColumns, row, column);
         this._entries[entryIndex] = value;
     }
