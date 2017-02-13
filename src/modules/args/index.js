@@ -1,0 +1,1 @@
+export { default as mandatory } from './lib/mandatory';
