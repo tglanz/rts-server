@@ -1,4 +1,4 @@
-import * as args from 'modules/args';
+import * as args from 'args';
 
 const _entryIndex = (columnCount, row, column) => row * columnCount + column;
 
@@ -7,24 +7,22 @@ export default class Matrix2d {
         rowCount = args.mandatory("rowCount"),
         columnCount = args.mandatory("columnCount")
     }){
-        this._rowCount = rowCount;
-        this._columnCount = columnCount;
+        this.rowCount = rowCount;
+        this.columnCount = columnCount;
 
-        this._entries = [];
-        this._entries.length = rowCount * columnCount;
+        this.entries = [];
+        this.entries.length = rowCount * columnCount;
     }
 
-    get numberOfRows() { return this._rowCount; }
-    get numberOfColumns() { return this._columnCount; }
-    get entriesCount() { return this._rowCount * this._columnCount }
+    get entriesCount() { return this.rowCount * this.columnCount }
 
-    getEntry(column = args.mandatory("column", row = args.mandatory("row"))){
-        const entryIndex = _entryIndex(this.numberOfColumns, row, column);
-        return this._entries[entryIndex];
+    getEntry(column = args.mandatory("column"), row = args.mandatory("row")){
+        const entryIndex = _entryIndex(this.columnCount, row, column);
+        return this.entries[entryIndex];
     }
 
     setEntry(column = args.mandatory("column"), row = args.mandatory("row"), value = args.mandatory("value")){
-        const entryIndex = _entryIndex(this.numberOfColumns, row, column);
-        this._entries[entryIndex] = value;
+        const entryIndex = _entryIndex(this.columnCount, row, column);
+        this.entries[entryIndex] = value;
     }
 }

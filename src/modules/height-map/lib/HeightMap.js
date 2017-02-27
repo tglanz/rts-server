@@ -1,4 +1,4 @@
-import * as args from 'modules/args';
+import * as args from 'args';
 
 export default class {
     constructor({
@@ -7,15 +7,13 @@ export default class {
         width = 1.0,    // this is actually the max x
         height = 1.0
     }){
-        this._heightMatrix = heightMatrix;
-        this._length = length;
-        this._width = width;
-        this._height = height;
+        this.dimensions = { length, width, height }
+        this.heightMatrix = heightMatrix;
     }
 
     setDimensions({ length, width, height }){
-        this._length = length || this._length;
-        this._width = width || this._width;
-        this._height = height || this._height;
+        this.dimensions.length = length || this.dimensions.length
+        this.dimensions.width = width || this.dimensions.width
+        this.dimensions.height = height || this.dimensions.height
     }
 }

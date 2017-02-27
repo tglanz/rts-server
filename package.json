@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node lib/index.js",
+    "server": "node lib/server/index.js",
     "build": "babel src --out-dir lib",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -30,6 +30,11 @@
     "app-module-path": "^2.2.0",
     "babel-plugin-transform-regenerator": "^6.22.0",
     "babel-polyfill": "^6.22.0",
-    "jimp": "^0.2.27"
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
+    "http-status-codes": "^1.1.6",
+    "jimp": "^0.2.27",
+    "morgan": "^1.8.1",
+    "uuid": "^3.0.1"
   }
 }
