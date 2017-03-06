@@ -3,6 +3,9 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
 
+import gqlHttp from 'express-graphql';
+import gqlSchema from 'gql/schema';
+
 import routers from 'routers';
 
 (async function () {
@@ -11,14 +14,27 @@ import routers from 'routers';
 
         const app = express();
         app.use(morgan('tiny'));
+
         app.use(bodyParser.urlencoded({ extended: false }))
         app.use(bodyParser.json())
+
         app.use("/", routers());
 
-        app.listen(3000, () => console.log("Listening on port 3000"));
+        await useGraphQL(app)
+
+        const server = app.listen(3000, () => {
+            console.log(`Listening on ${server.address().port}`)
+        });
 
         console.log("server execution end")
     } catch (error) {
         console.log("server execution failed", error);
     }
 }())
+
+async function useGraphQL(app){
+    app.use('/gql', gqlHttp({
+        schema: gqlSchema,
+        graphiql: true
+    }))
+}
