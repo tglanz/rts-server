@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "node lib/server/index.js",
-    "build-server": "babel src/server src/modules --out-dir lib/server",
+    "start": "node lib/server/index.js",
+    "build": "babel src/server src/modules --out-dir lib/server",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/server/index.js --exec babel-node src/server/index.js"
   },
@@ -34,6 +34,7 @@
     "babel-polyfill": "^6.22.0",
     "body-parser": "^1.16.1",
     "express": "^4.14.1",
+    "express-graphql": "^0.6.3",
     "graphql": "^0.9.1",
     "http-status-codes": "^1.1.6",
     "jimp": "^0.2.27",
