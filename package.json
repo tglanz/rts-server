@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node lib/server/index.js",
-    "build": "babel src/server src/modules --out-dir lib/server",
+    "a": "node lib/test.js",
+    "start": "node lib/index.js",
+    "build": "babel src --out-dir lib",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/server/index.js --exec babel-node src/server/index.js"
   },
@@ -39,6 +40,7 @@
     "http-status-codes": "^1.1.6",
     "jimp": "^0.2.27",
     "morgan": "^1.8.1",
+    "rts-modules": "git+https://git@github.com/tglanz/rts-modules.git",
     "uuid": "^3.0.1"
   }
 }

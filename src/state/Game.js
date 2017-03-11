@@ -1,5 +1,5 @@
-import args from 'args';
-import * as HeightMap from 'height-map';
+import args from 'rts-modules/args';
+import * as HeightMap from 'rts-modules/height-map';
 
 export default class {
     constructor({
