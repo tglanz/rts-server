@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "server": "node lib/server/index.js",
-    "build": "babel src --out-dir lib",
+    "build-server": "babel src/server src/modules --out-dir lib/server",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/server/index.js --exec babel-node src/server/index.js"
   },
@@ -26,7 +26,8 @@
     "babel-polyfill": "^6.22.0",
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-stage-0": "^6.22.0",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "webpack": "^2.2.1"
   },
   "dependencies": {
     "app-module-path": "^2.2.0",
