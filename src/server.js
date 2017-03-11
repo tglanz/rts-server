@@ -1,6 +1,7 @@
 import express from 'express';
 
 import bodyParser from 'body-parser';
+import cors from 'cors';
 import morgan from 'morgan';
 
 import gqlHttp from 'express-graphql';
@@ -14,13 +15,13 @@ import routers from 'routers';
 
         const app = express();
         app.use(morgan('tiny'));
-
-        app.use(bodyParser.urlencoded({ extended: false }))
-        app.use(bodyParser.json())
+        app.use(cors());
+        app.use(bodyParser.urlencoded({ extended: false }));
+        app.use(bodyParser.json());
 
         app.use("/", routers());
 
-        await useGraphQL(app)
+        await useGraphQL(app);
 
         const server = app.listen(3000, () => {
             console.log(`Listening on ${server.address().port}`)

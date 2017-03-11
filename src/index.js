@@ -10,5 +10,10 @@ import path from 'path';
 }())
 
 // Use require and not import so the scrip will be loaded on runtime
-require('babel-polyfill')
+try {
+    require('babel-polyfill')
+} catch (error){
+    console.log("Failed to load babel-polyfill, are you running nodemon?")
+}
+
 require('./server')
